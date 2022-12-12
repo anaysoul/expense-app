@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import DatePicker from "react-date-picker";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
@@ -46,7 +46,7 @@ const ExpenseForm = (props) => {
     const expenseData = {
         title: enteredTitle, 
         amount: enteredAmount,
-        date: new Date(enteredDate)
+        date: new Date(enteredDate + 'T00:00:00')
     }
 
     props.onSaveExpenseData(expenseData);
@@ -76,8 +76,8 @@ const ExpenseForm = (props) => {
           <label>Date</label>
           <input
             type="date"
-            min="2019-01-01"
-            maz="2022-12-31"
+            min="2019/01/01"
+            max="2022/12/31"
             value={enteredDate}
             onChange={dateChangeHandler}
           ></input>
